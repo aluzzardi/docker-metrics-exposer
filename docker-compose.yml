@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+    metrics-exposer:
+        image: aluzzardi/nginx-metrics-exposer
+        ports:
+            # FIXME: Those should be local bound.
+            - 8080:80
+        volumes:
+            - /var/run/docker.sock:/tmp/docker.sock
+        deploy:
+            mode: global
